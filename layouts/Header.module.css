@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 1rem 0;
+  background-color: var(--component-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--site-title);
+  color: var(--text-primary);
+  background: linear-gradient(transparent 70%, var(--primary) 70%);
+}
+
+.title:hover,
+.title:focus,
+.title:active {
+  background: linear-gradient(transparent 70%, var(--secondary) 70%);
+}
+
+.description {
+  font-size: var(--sub-title);
+  color: var(--text-secondary);
+}

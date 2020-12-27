@@ -1,0 +1,31 @@
+.footer {
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 1.5rem 0;
+  background-color: var(--component-bg);
+}
+
+.footer p {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--normal-size);
+  color: var(--text-primary);
+}
+
+.footer a {
+  margin-left: 0.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.footer a:hover,
+.footer a:focus,
+.footer a:active {
+  color: var(--secondary);
+}
+
+.footer img {
+  height: calc(var(--normal-size) * 0.9);
+}

@@ -1,60 +1,46 @@
 import { FC } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
+import type { GetStaticProps } from 'next';
+import type { Article } from 'types/Article';
+import ArticleHeader from 'components/ArticleHeader';
+import { generateArticles } from 'lib/functions';
 import styles from 'styles/Home.module.css';
 
-const Home: FC = () => (
-  <div className={styles.container}>
+type Props = {
+  articles: Article[];
+};
+
+const Home: FC<Props> = ({ articles }) => (
+  <>
     <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>2754の技術ブログ</title>
+      <meta
+        name="description"
+        content="Web系エンジニア「2754」の個人ブログです。有能謎個人ブログを目指して日々頑張っています。フロントエンド、バックエンド、時々インフラ。"
+      />
     </Head>
 
-    <main className={styles.main}>
-      <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+    <nav>nav（TBD）</nav>
 
-      <p className={styles.description}>
-        Get started by editing <code className={styles.code}>pages/index.js</code>
-      </p>
-
-      <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className={styles.card}>
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a href="https://github.com/vercel/next.js/tree/master/examples" className={styles.card}>
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
-      </div>
+    <main>
+      {articles.map((article) => (
+        <Link href={`/articles/${article.title}`} key={article.title}>
+          <a className={styles.card}>
+            <ArticleHeader article={article} />
+          </a>
+        </Link>
+      ))}
     </main>
 
-    <footer className={styles.footer}>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-      </a>
-    </footer>
-  </div>
+    <aside>aside（TBD）</aside>
+  </>
 );
 
 // eslint-disable-next-line import/no-default-export
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const articles = await generateArticles();
+  return { props: { articles } };
+};

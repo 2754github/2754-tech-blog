@@ -1,0 +1,11 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 100px auto 350px;
+  background-color: var(--main-bg);
+}
+
+@media (max-width: 900px) {
+  .gridContainer {
+    display: block;
+  }
+}
