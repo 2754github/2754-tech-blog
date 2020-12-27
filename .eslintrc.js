@@ -30,7 +30,10 @@ module.exports = {
   //
   plugins: ['@typescript-eslint', 'import', 'jsx-a11y', 'prefer-arrow', 'react', 'react-hooks'],
   root: true,
-  settings: { react: { version: 'detect' } },
+  settings: {
+    'import/resolver': { node: { paths: ['.'] } },
+    react: { version: 'detect' },
+  },
   rules: {
     // eslint-config-airbnb と反する部分
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
@@ -40,28 +43,27 @@ module.exports = {
     'react/react-in-jsx-scope': 'off', // 'React' の import が不要なためoff
     'jsx-a11y/anchor-is-valid': [
       'error',
-      {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
-      },
+      { components: ['Link'], specialLink: ['hrefLeft', 'hrefRight'], aspects: ['invalidHref', 'preferButton'] },
     ], // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md#rule-details
     // emotion 用
     'no-use-before-define': 'off', // タグ定義を後で書くためoff
     '@typescript-eslint/no-use-before-define': 'off', // タグ定義を後で書くためoff
-    // 自分の好み
+    // 以下、自分の好み
+    camelcase: 'warn',
+    'object-curly-newline': 'off',
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
-    'import/extensions': [
+    // 未使用変数の定義を、変数名を'_'にしたときのみ許容する。
+    '@typescript-eslint/no-unused-vars': [
       'error',
-      'ignorePackages',
-      { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
-    ], // npm パッケージ以外のファイルでは「js, jsx, ts, tsx」の拡張子を省略
+      { vars: 'all', args: 'after-used', argsIgnorePattern: '_', ignoreRestSiblings: false, varsIgnorePattern: '_' },
+    ],
+    // npm パッケージ以外のファイルでは「js, jsx, ts, tsx」の拡張子を省略
+    'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' }],
     'import/no-default-export': 'error',
-    'prefer-arrow/prefer-arrow-functions': [
-      'error',
-      { disallowPrototype: true, singleReturnOnly: false, classPropertiesAllowed: false },
-    ], // https://www.npmjs.com/package/eslint-plugin-prefer-arrow#installation
-    'react/jsx-wrap-multilines': 'off', // Prettier の設定とバッティングすることがあるためoff
+    // https://www.npmjs.com/package/eslint-plugin-prefer-arrow#installation
+    'prefer-arrow/prefer-arrow-functions': ['error', { disallowPrototype: true, singleReturnOnly: false, classPropertiesAllowed: false }],
+    // Prettier の設定とバッティングすることがあるためoff
+    'react/jsx-wrap-multilines': 'off',
     // https://ja.reactjs.org/docs/hooks-rules.html#eslint-plugin
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
