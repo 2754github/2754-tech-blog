@@ -4,7 +4,9 @@ import Link from 'next/link';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import type { Article } from 'types/Article';
 import ArticleHeader from 'components/ArticleHeader';
+import MarkdownRenderer from 'components/MarkdownRenderer';
 import { fetchTitles, generateArticle } from 'lib/functions';
+import styles from 'styles/ArticlePage.module.css';
 
 type Props = {
   article: Article;
@@ -20,12 +22,12 @@ const ArticlePage: FC<Props> = ({ article }) => (
     <nav>nav（TBD）</nav>
 
     <main>
-      <article>
+      <article className={styles.article}>
         <section>
           <ArticleHeader article={article} />
         </section>
         <section>
-          <div>{article.body}</div>
+          <MarkdownRenderer markdown={article.body} />
         </section>
         <section>
           <Link href="/">
