@@ -1,0 +1,87 @@
+/* 見出し */
+.hx {
+}
+
+.hx a {
+  display: none;
+}
+
+.hx:hover a,
+.hx:focus a,
+.hx:active a {
+  display: inline;
+}
+
+.h2 {
+  background: linear-gradient(transparent 70%, var(--primary) 70%);
+}
+
+.h3 {
+  border-bottom: 3px solid var(--primary);
+}
+
+.h4 {
+}
+
+/* 水平線 */
+.hr {
+  border-color: var(--primary);
+}
+
+/* インラインコード */
+.codespan {
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: var(--border);
+}
+
+/* コードブロック */
+.pre {
+  overflow: scroll;
+  background: var(--border);
+}
+
+.span {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  background: var(--secondary);
+  font-weight: bold;
+}
+
+.code {
+  display: block;
+  padding: 15px;
+}
+
+/* テーブル */
+.table {
+  border-color: var(--border);
+}
+
+.thead {
+  background-color: var(--border);
+}
+
+/* 引用 */
+.blockquote {
+  border-left: 10px solid var(--secondary);
+  padding: 0 10px;
+  background: var(--border);
+}
+
+.blockquote p {
+  color: var(--text-secondary);
+}
+
+/* リンク */
+.a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.a:hover,
+.a:focus,
+.a:active {
+  color: var(--secondary);
+}
