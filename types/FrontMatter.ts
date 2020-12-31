@@ -1,5 +1,5 @@
 type FrontMatter = {
-  tags: string;
+  tags: string[];
   updatedAt: string;
   publish: boolean;
 };
