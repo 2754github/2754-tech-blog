@@ -10,7 +10,9 @@ const ArticleHeader: FC<Props> = ({ article }) => (
   <>
     <h1 className={styles.title}>{article.title}</h1>
     {article.frontMatter.tags.map((tag) => (
-      <span className={styles.tag}>{tag}</span>
+      <span className={styles.tag} key={tag}>
+        {tag}
+      </span>
     ))}
     <div className={styles.time}>
       <time dateTime={article.frontMatter.updatedAt} itemProp="modified">
