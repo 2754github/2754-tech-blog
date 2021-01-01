@@ -5,18 +5,19 @@ import type { GetStaticPaths, GetStaticProps } from 'next';
 import type { Article } from 'types/Article';
 import ArticleHeader from 'components/ArticleHeader';
 import MarkdownRenderer from 'components/MarkdownRenderer';
-import { fetchTitles, generateArticle } from 'lib/functions';
+import { fetchTitles, generateArticle, generateDescription } from 'lib/functions';
 import styles from 'styles/ArticlePage.module.css';
 
 type Props = {
   article: Article;
+  description: string;
 };
 
-const ArticlePage: FC<Props> = ({ article }) => (
+const ArticlePage: FC<Props> = ({ article, description }) => (
   <>
     <Head>
       <title>{article.title}</title>
-      {/* <meta name="description" content={`${}`} /> */}
+      <meta name="description" content={description} />
     </Head>
 
     <nav>nav（TBD）</nav>
@@ -57,5 +58,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
   const article = await generateArticle(params.title);
-  return { props: { article } };
+  const description = generateDescription(article.body);
+  return { props: { article, description } };
 };

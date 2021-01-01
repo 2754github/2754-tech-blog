@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import marked from 'marked';
 import { fetchAllFileNames, fetchFileContent } from './GitHubAPI';
 
 // https://github.com/jonschlinkert/gray-matter#usage
@@ -68,4 +69,20 @@ const generateArticle = async (title: string) => {
   return article;
 };
 
-export { fetchTitles, generateArticles, generateArticle };
+const generateDescription = (markdown: string) => {
+  const html = marked(markdown) as string;
+  const paragraphs = html.match(/<p>.*?<\/p>/g);
+  const paragraphArray = paragraphs?.map((paragraph) => unEscapeHTML(paragraph.replace(/<.*?>/g, '')));
+  const description = paragraphArray?.join(' ').slice(0, 150);
+  return description;
+};
+
+const unEscapeHTML = (text: string) =>
+  text
+    .replace(/(&lt;)/g, '<')
+    .replace(/(&gt;)/g, '>')
+    .replace(/(&quot;)/g, '"')
+    .replace(/(&#39;)/g, "'")
+    .replace(/(&amp;)/g, '&');
+
+export { fetchTitles, generateArticles, generateArticle, generateDescription };
