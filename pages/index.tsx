@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import type { GetStaticProps } from 'next';
+import { SITE_TITLE, HOME_DESCRIPTION } from 'lib/constants';
 import type { Article } from 'types/Article';
 import ArticleHeader from 'components/ArticleHeader';
 import { generateArticles } from 'lib/functions';
@@ -14,11 +15,8 @@ type Props = {
 const Home: FC<Props> = ({ articles }) => (
   <>
     <Head>
-      <title>2754の技術ブログ</title>
-      <meta
-        name="description"
-        content="Web系エンジニア「2754」の個人ブログです。有能謎個人ブログを目指して日々頑張っています。フロントエンド、バックエンド、時々インフラ。"
-      />
+      <title>{SITE_TITLE}</title>
+      <meta name="description" content={HOME_DESCRIPTION} />
     </Head>
 
     <nav>nav（TBD）</nav>

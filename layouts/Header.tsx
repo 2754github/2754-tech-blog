@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
+import { SITE_TITLE, SITE_SUBTITLE } from 'lib/constants';
 import styles from './Header.module.css';
 
 const Header: FC = () => {
@@ -7,9 +8,9 @@ const Header: FC = () => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title} onClick={() => router.push('/')}>
-        2754の技術ブログ
+        {SITE_TITLE}
       </h1>
-      <p className={styles.description}>Web系エンジニアの備忘録</p>
+      <p className={styles.description}>{SITE_SUBTITLE}</p>
     </header>
   );
 };

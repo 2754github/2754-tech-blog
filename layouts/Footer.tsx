@@ -1,28 +1,25 @@
 import { FC } from 'react';
+import { AUTHOR, VERCEL_OFFICIAL_URL, TWITTER_URL, REPOSITORY_URL } from 'lib/constants';
 import styles from './Footer.module.css';
 
 const Footer: FC = () => (
   <footer className={styles.footer}>
     <p>
       Powered by
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={VERCEL_OFFICIAL_URL} target="_blank" rel="noopener noreferrer">
         <img src="/vercel.svg" alt="Vercel Logo" />
       </a>
     </p>
     <p>
       This blog was created by
-      <a href="https://twitter.com/2754_quarter" target="_blank" rel="noopener noreferrer">
-        2754
+      <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">
+        {AUTHOR}
       </a>
       .
     </p>
     <p>
       The source code is
-      <a href="https://github.com/2754github/2754-tech-blog" target="_blank" rel="noopener noreferrer">
+      <a href={REPOSITORY_URL} target="_blank" rel="noopener noreferrer">
         here
       </a>
       .
