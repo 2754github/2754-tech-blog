@@ -85,4 +85,12 @@ const unEscapeHTML = (text: string) =>
     .replace(/(&#39;)/g, "'")
     .replace(/(&amp;)/g, '&');
 
-export { fetchTitles, generateArticles, generateArticle, generateDescription };
+const generateOgpImageUrl = (title: string, fontSize: number, y: number) => {
+  const ogpUrl = process.env.OGP_URL || '';
+  const ogpQuery = `l_text:Sawarabi%20Gothic_${fontSize}_bold:${title},y_${y},x_0,w_600,c_fit,co_rgb:000000`;
+  const ogpBgImage = process.env.OGP_BG_IMAGE || '';
+  const ogpImageUrl = `${ogpUrl}/${ogpQuery}/${ogpBgImage}`;
+  return ogpImageUrl;
+};
+
+export { fetchTitles, generateArticles, generateArticle, generateDescription, generateOgpImageUrl };
