@@ -5,7 +5,7 @@
 
 .tag {
   margin-right: 0.5rem;
-  border: 2px var(--primary) solid;
+  border: 1px var(--text-primary) solid;
   border-radius: 10px;
   padding: 2px 5px;
   font-size: 1.2rem;
