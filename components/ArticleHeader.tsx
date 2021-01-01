@@ -9,7 +9,11 @@ type Props = {
 const ArticleHeader: FC<Props> = ({ article }) => (
   <>
     <h1 className={styles.title}>{article.title}</h1>
-    <div className={styles.tags}>{article.frontMatter.tags}</div>
+    {article.frontMatter.tags.map((tag) => (
+      <span className={styles.tag} key={tag}>
+        {tag}
+      </span>
+    ))}
     <div className={styles.time}>
       <time dateTime={article.frontMatter.updatedAt} itemProp="modified">
         {article.frontMatter.updatedAt}
