@@ -55,7 +55,9 @@ export default ArticlePage;
 export const getStaticPaths: GetStaticPaths = async () => {
   const titles = await fetchTitles();
   return {
-    paths: titles.map((title) => ({ params: { title: encodeURIComponent(title) } })),
+    // エンコードなしだと title に日本語が入っていた場合にうまくいかない
+    // encodeURIComponent だと title = "「firebase: command not found」の対処法" の場合にうまくいかない
+    paths: titles.map((title) => ({ params: { title: encodeURI(title) } })),
     fallback: false,
   };
 };

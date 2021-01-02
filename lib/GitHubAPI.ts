@@ -34,7 +34,9 @@ const fetchAllFileNames = async () => {
 };
 
 const fetchFileContent = async (fileName: string) => {
-  const content = (await getRepository(`contents/${encodeURIComponent(fileName)}`)) as Content;
+  // エンコードなしだと title に日本語が入っていた場合にうまくいかない
+  // encodeURI, encodeURIComponent はどっちでも動作したので、他に合わせて encodeURI にする。
+  const content = (await getRepository(`contents/${encodeURI(fileName)}`)) as Content;
   const fileContent = Base64.decode(content.content);
   return fileContent;
 };
