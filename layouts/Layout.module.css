@@ -1,11 +1,31 @@
-.gridContainer {
-  display: grid;
-  grid-template-columns: 100px auto 350px;
+.layout {
+  display: flex;
+  justify-content: center;
   background-color: var(--main-bg);
 }
 
-@media (max-width: 900px) {
-  .gridContainer {
+.layout main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 600px;
+  min-height: 100vh;
+}
+
+.layout aside {
+  width: 400px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
     display: block;
+    padding-bottom: 0.5rem;
+  }
+
+  .layout main,
+  .layout aside {
+    margin: 0 auto;
+    width: auto;
+    max-width: 600px;
   }
 }

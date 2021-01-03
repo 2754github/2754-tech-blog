@@ -27,8 +27,6 @@ const ArticlePage: FC<Props> = ({ article, description, ogpImageUrl }) => (
       <meta property="og:image" content={ogpImageUrl} />
     </Head>
 
-    <nav>nav（TBD）</nav>
-
     <main>
       <article className={styles.article}>
         <section>
