@@ -9,7 +9,8 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="ja">
+      // https://ogp.me/
+      <Html lang="ja" prefix="og: https://ogp.me/ns#">
         <Head />
         <body>
           <Main />

@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import marked from 'marked';
 import { fetchAllFileNames, fetchFileContent } from './GitHubAPI';
 
 // https://github.com/jonschlinkert/gray-matter#usage
@@ -68,4 +69,28 @@ const generateArticle = async (title: string) => {
   return article;
 };
 
-export { fetchTitles, generateArticles, generateArticle };
+const generateDescription = (markdown: string) => {
+  const html = marked(markdown) as string;
+  const paragraphs = html.match(/<p>.*?<\/p>/g);
+  const paragraphArray = paragraphs?.map((paragraph) => unEscapeHTML(paragraph.replace(/<.*?>/g, '')));
+  const description = paragraphArray?.join(' ').slice(0, 150);
+  return description;
+};
+
+const unEscapeHTML = (text: string) =>
+  text
+    .replace(/(&lt;)/g, '<')
+    .replace(/(&gt;)/g, '>')
+    .replace(/(&quot;)/g, '"')
+    .replace(/(&#39;)/g, "'")
+    .replace(/(&amp;)/g, '&');
+
+const generateOgpImageUrl = (title: string, fontSize: number, y: number) => {
+  const ogpUrl = process.env.OGP_URL || '';
+  const ogpQuery = `l_text:Sawarabi%20Gothic_${fontSize}_bold:${title},y_${y},x_0,w_600,c_fit,co_rgb:000000`;
+  const ogpBgImage = process.env.OGP_BG_IMAGE || '';
+  const ogpImageUrl = `${ogpUrl}/${ogpQuery}/${ogpBgImage}`;
+  return ogpImageUrl;
+};
+
+export { fetchTitles, generateArticles, generateArticle, generateDescription, generateOgpImageUrl };
