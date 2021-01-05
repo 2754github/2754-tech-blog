@@ -4,13 +4,19 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px var(--border) solid;
-  padding: 2rem 0 1rem 0;
+  padding: 1rem 0;
   background-color: var(--component-bg);
 }
 
 .title {
-  margin: 0;
+  margin-bottom: 1rem;
   background: linear-gradient(transparent 70%, var(--primary) 70%);
+  font-size: var(--site-title);
+  font-weight: bold;
+}
+
+.title h1 {
+  margin: 0;
   font-size: var(--site-title);
 }
 
