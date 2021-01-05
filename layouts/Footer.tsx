@@ -4,26 +4,26 @@ import styles from './Footer.module.css';
 
 const Footer: FC = () => (
   <footer className={styles.footer}>
-    <p>
+    <div>
       Powered by
       <a href={VERCEL_OFFICIAL_URL} target="_blank" rel="noopener noreferrer">
         <img src="/vercel.svg" alt="Vercel Logo" />
       </a>
-    </p>
-    <p>
+    </div>
+    <div>
       This blog was created by
       <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">
         {AUTHOR}
       </a>
       .
-    </p>
-    <p>
+    </div>
+    <div>
       The source code is
       <a href={REPOSITORY_URL} target="_blank" rel="noopener noreferrer">
         here
       </a>
       .
-    </p>
+    </div>
   </footer>
 );
 
