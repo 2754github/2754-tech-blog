@@ -29,17 +29,18 @@ const ArticlePage: FC<Props> = ({ article, description, ogpImageUrl }) => (
 
     <main>
       <article className={styles.article}>
-        <section>
+        <header>
           <ArticleHeader article={article} />
-        </section>
-        <section>
-          <MarkdownRenderer markdown={article.body} />
-        </section>
-        <section>
+        </header>
+
+        {/* section でラップされている ↓ */}
+        <MarkdownRenderer markdown={article.body} />
+
+        <footer>
           <Link href="/">
             <a>&larr; ホームに戻る</a>
           </Link>
-        </section>
+        </footer>
       </article>
     </main>
 

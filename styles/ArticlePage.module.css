@@ -1,4 +1,6 @@
-.article section {
+.article header,
+.article section,
+.article footer {
   margin: 1rem;
   padding: 1.5rem;
   background-color: var(--component-bg);
