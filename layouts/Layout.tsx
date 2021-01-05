@@ -6,7 +6,7 @@ import styles from './Layout.module.css';
 const Layout: FC = ({ children }) => (
   <>
     <Header />
-    <div className={styles.gridContainer}>{children}</div>
+    <div className={styles.layout}>{children}</div>
     <Footer />
   </>
 );

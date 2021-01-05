@@ -25,8 +25,6 @@ const Home: FC<Props> = ({ articles, ogpImageUrl }) => (
       <meta property="og:image" content={ogpImageUrl} />
     </Head>
 
-    <nav>nav（TBD）</nav>
-
     <main>
       {articles.map((article) => (
         <Link href={`/articles/${article.title}`} key={article.title}>

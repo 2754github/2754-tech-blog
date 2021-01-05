@@ -17,26 +17,6 @@ a {
   /* outline: 1px solid var(--text-primary); */
 }
 
-nav {
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  min-height: 100vh;
-}
-
-aside {
-}
-
-@media (max-width: 900px) {
-  aside {
-    display: none;
-  }
-}
-
 :root {
   --site-title: 3rem;
   --site-subtitle: 1.5rem;
