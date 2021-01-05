@@ -27,11 +27,13 @@ const Home: FC<Props> = ({ articles, ogpImageUrl }) => (
 
     <main>
       {articles.map((article) => (
-        <Link href={`/articles/${article.title}`} key={article.title}>
-          <a className={styles.card}>
-            <ArticleHeader article={article} />
-          </a>
-        </Link>
+        <article className={styles.card} key={article.title}>
+          <Link href={`/articles/${article.title}`}>
+            <a>
+              <ArticleHeader article={article} />
+            </a>
+          </Link>
+        </article>
       ))}
     </main>
 
