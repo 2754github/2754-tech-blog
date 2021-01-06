@@ -1,9 +1,14 @@
 .title {
   margin: 0 0 0.5rem 0;
   font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.tag {
+.tags {
+  margin-bottom: 0.5rem;
+}
+
+.tags span {
   margin-right: 0.5rem;
   border: 1px var(--text-primary) solid;
   border-radius: 10px;
@@ -13,6 +18,5 @@
 
 .time {
   text-align: right;
-  margin: 0.5rem 0 0 0;
   font-size: 1.2rem;
 }

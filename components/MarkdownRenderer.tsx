@@ -57,7 +57,7 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
 
   marked.setOptions({ breaks: true, renderer });
 
-  return <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
+  return <section dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
 };
 
 export default MarkdownRenderer;
