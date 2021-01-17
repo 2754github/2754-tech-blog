@@ -14,18 +14,16 @@
 
 .h2 {
   background: linear-gradient(transparent 70%, var(--primary) 70%);
+  font-size: 1.5em;
 }
 
 .h3 {
   border-bottom: 3px solid var(--primary);
+  font-size: 1.17em;
 }
 
 .h4 {
-}
-
-/* 水平線 */
-.hr {
-  border-color: var(--primary);
+  font-size: 1.17em;
 }
 
 /* インラインコード */
@@ -52,6 +50,8 @@
 .code {
   display: block;
   padding: 15px;
+  /* Qiita のコードブロックのフォントを参考にした（2021-01-13） */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 /* テーブル */
@@ -65,6 +65,7 @@
 
 /* 引用 */
 .blockquote {
+  margin: 16px 0;
   border-left: 10px solid var(--secondary);
   padding: 0 10px;
   background: var(--border);

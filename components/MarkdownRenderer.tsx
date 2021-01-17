@@ -11,17 +11,13 @@ type Props = {
 
 const MarkdownRenderer: FC<Props> = ({ markdown }) => {
   const renderer = new marked.Renderer();
+
+  // https://github.com/markedjs/marked/blob/master/src/Renderer.js
   renderer.heading = (text: string, level: number, raw: string, slugger: any) => {
-    const i = level + 1;
-    const slug = slugger.slug(raw);
-    if (i > 4) {
-      return `<h5 id=${slug} class=${styles.hx}>${text}<a href=#${slug}> 📌</a></h5>\n`;
-    }
+    const x = Math.min(level + 1, 4); // x: 2~4
+    const id = slugger.slug(raw);
     const styleArray = [undefined, undefined, styles.h2, styles.h3, styles.h4];
-    return `<h${i} id=${slug} class="${styles.hx} ${styleArray[i]}">${text}<a href=#${slug}> 📌</a></h${i}>\n`;
-  };
-  renderer.hr = () => {
-    return `<hr class=${styles.hr} />\n`;
+    return `<h${x} id=${id} class="${styles.hx} ${styleArray[x]}">${text}<a href=#${id}> 📌</a></h${x}>\n`;
   };
   renderer.codespan = (code: string) => {
     return `<code class=${styles.codespan}>${code}</code>`;
@@ -33,8 +29,11 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
       `<span class=${styles.span}>${fileName}</span>` +
       '<br />' +
       `<code class="language-${langType} ${styles.code}">` +
+      // https://github.com/highlightjs/highlight.js#nodejs
+      // https://github.com/highlightjs/highlight.js/blob/master/docs/api.rst#highlightautocode-languagesubset
+      // https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
       hljs.highlightAuto(code, [langType]).value +
-      '</code >' +
+      '</code>' +
       '</pre>'
     );
   };
