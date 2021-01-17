@@ -65,6 +65,7 @@
 
 /* 引用 */
 .blockquote {
+  margin: 16px 0;
   border-left: 10px solid var(--secondary);
   padding: 0 10px;
   background: var(--border);
