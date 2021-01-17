@@ -33,7 +33,7 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
       // https://github.com/highlightjs/highlight.js/blob/master/docs/api.rst#highlightautocode-languagesubset
       // https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
       hljs.highlightAuto(code, [langType]).value +
-      '</code >' +
+      '</code>' +
       '</pre>'
     );
   };

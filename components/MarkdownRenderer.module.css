@@ -50,6 +50,8 @@
 .code {
   display: block;
   padding: 15px;
+  /* Qiita のコードブロックのフォントを参考にした（2021-01-13） */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 /* テーブル */
