@@ -11,6 +11,8 @@ type Props = {
 
 const MarkdownRenderer: FC<Props> = ({ markdown }) => {
   const renderer = new marked.Renderer();
+
+  // https://github.com/markedjs/marked/blob/master/src/Renderer.js
   renderer.heading = (text: string, level: number, raw: string, slugger: any) => {
     const x = Math.min(level + 1, 4); // x: 2~4
     const id = slugger.slug(raw);
@@ -27,6 +29,9 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
       `<span class=${styles.span}>${fileName}</span>` +
       '<br />' +
       `<code class="language-${langType} ${styles.code}">` +
+      // https://github.com/highlightjs/highlight.js#nodejs
+      // https://github.com/highlightjs/highlight.js/blob/master/docs/api.rst#highlightautocode-languagesubset
+      // https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
       hljs.highlightAuto(code, [langType]).value +
       '</code >' +
       '</pre>'
