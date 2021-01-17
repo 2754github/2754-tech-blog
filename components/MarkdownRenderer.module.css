@@ -26,11 +26,6 @@
   font-size: 1.17em;
 }
 
-/* 水平線 */
-.hr {
-  border-color: var(--primary);
-}
-
 /* インラインコード */
 .codespan {
   border-radius: 5px;

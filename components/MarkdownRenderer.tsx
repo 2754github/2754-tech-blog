@@ -17,9 +17,6 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
     const styleArray = [undefined, undefined, styles.h2, styles.h3, styles.h4];
     return `<h${x} id=${id} class="${styles.hx} ${styleArray[x]}">${text}<a href=#${id}> 📌</a></h${x}>\n`;
   };
-  renderer.hr = () => {
-    return `<hr class=${styles.hr} />\n`;
-  };
   renderer.codespan = (code: string) => {
     return `<code class=${styles.codespan}>${code}</code>`;
   };
