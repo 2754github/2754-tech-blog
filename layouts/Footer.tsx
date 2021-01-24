@@ -1,28 +1,21 @@
 import { FC } from 'react';
 import { AUTHOR, VERCEL_OFFICIAL_URL, TWITTER_URL, REPOSITORY_URL } from 'lib/constants';
+import Anchor from 'components/Anchor';
 import styles from './Footer.module.css';
 
 const Footer: FC = () => (
   <footer className={styles.footer}>
     <div>
       Powered by
-      <a href={VERCEL_OFFICIAL_URL} target="_blank" rel="noopener noreferrer">
+      <Anchor href={VERCEL_OFFICIAL_URL}>
         <img src="/vercel.svg" alt="Vercel Logo" />
-      </a>
+      </Anchor>
     </div>
     <div>
-      This blog was created by
-      <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">
-        {AUTHOR}
-      </a>
-      .
+      This blog was created by<Anchor href={TWITTER_URL}>{AUTHOR}</Anchor>.
     </div>
     <div>
-      The source code is
-      <a href={REPOSITORY_URL} target="_blank" rel="noopener noreferrer">
-        here
-      </a>
-      .
+      The source code is<Anchor href={REPOSITORY_URL}>here</Anchor>.
     </div>
   </footer>
 );

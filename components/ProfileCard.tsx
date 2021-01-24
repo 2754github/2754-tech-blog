@@ -13,20 +13,21 @@ import {
   SELF_INTRODUCTION,
   ADDITIONAL_SELF_INTRODUCTION,
 } from 'lib/constants';
+import Anchor from 'components/Anchor';
 import styles from './ProfileCard.module.css';
 
 const ProfileCard: FC = () => (
   <div className={styles.card}>
     <div className={styles.flex}>
-      <a className={styles.myIcon} href={GITHUB_IMG_LINK} target="_blank" rel="noopener noreferrer">
+      <Anchor className={styles.myIcon} href={GITHUB_IMG_LINK}>
         <Image src={GITHUB_IMG_LINK} alt="my icon" width={460} height={460} />
-      </a>
+      </Anchor>
       <div>
         <div className={styles.author}>{AUTHOR}</div>
         <div className={styles.job}>{JOB}</div>
-        <IconButton url={TWITTER_URL} icon={TWITTER_ICON} />
-        <IconButton url={GITHUB_URL} icon={GITHUB_ICON} />
-        <IconButton url={MAIL_URL} icon={MAIL_ICON} />
+        <IconButton href={TWITTER_URL} d={TWITTER_ICON} />
+        <IconButton href={GITHUB_URL} d={GITHUB_ICON} />
+        <IconButton href={MAIL_URL} d={MAIL_ICON} />
       </div>
     </div>
     <hr />
@@ -37,16 +38,16 @@ const ProfileCard: FC = () => (
 
 // TODO: コンポーネント分ける
 type Props = {
-  url: string;
-  icon: string;
+  href: string;
+  d: string;
 };
 
-const IconButton: FC<Props> = ({ url, icon }) => (
-  <a className={styles.iconButton} href={url} target="_blank" rel="noopener noreferrer">
+const IconButton: FC<Props> = ({ href, d }) => (
+  <Anchor className={styles.iconButton} href={href}>
     <svg width="24px" height="24px" viewBox="0 0 24 24">
-      <path d={icon} />
+      <path d={d} />
     </svg>
-  </a>
+  </Anchor>
 );
 
 // eslint-disable-next-line import/no-default-export
