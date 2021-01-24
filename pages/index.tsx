@@ -5,6 +5,7 @@ import type { GetStaticProps } from 'next';
 import { SITE_TITLE, HOME_DESCRIPTION, SITE_URL } from 'lib/constants';
 import type { Article } from 'types/Article';
 import ArticleHeader from 'components/ArticleHeader';
+import ProfileCard from 'components/ProfileCard';
 import { generateArticles, generateOgpImageUrl } from 'lib/functions';
 import styles from 'styles/Home.module.css';
 
@@ -37,7 +38,9 @@ const Home: FC<Props> = ({ articles, ogpImageUrl }) => (
       ))}
     </main>
 
-    <aside>aside（TBD）</aside>
+    <aside>
+      <ProfileCard />
+    </aside>
   </>
 );
 
