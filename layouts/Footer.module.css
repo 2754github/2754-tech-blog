@@ -31,16 +31,5 @@
 
 .footer img {
   height: 1rem;
-}
-
-@media (prefers-color-scheme: light) {
-  .footer img {
-    filter: invert(0%);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .footer img {
-    filter: invert(70%);
-  }
+  filter: var(--vercel-logo);
 }

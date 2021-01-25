@@ -18,13 +18,13 @@ import styles from './ProfileCard.module.css';
 
 const ProfileCard: FC = () => (
   <div className={styles.card}>
-    <div className={styles.flex}>
-      <Anchor className={styles.myIcon} href={GITHUB_IMG_LINK}>
+    <div className={styles.header}>
+      <Anchor className="my-icon" href={GITHUB_IMG_LINK}>
         <Image src={GITHUB_IMG_LINK} alt="my icon" width={460} height={460} />
       </Anchor>
       <div>
         <div className={styles.author}>{AUTHOR}</div>
-        <div className={styles.job}>{JOB}</div>
+        <div className={`sumaho-none ${styles.job}`}>{JOB}</div>
         <IconButton href={TWITTER_URL} d={TWITTER_ICON} />
         <IconButton href={GITHUB_URL} d={GITHUB_ICON} />
         <IconButton href={MAIL_URL} d={MAIL_ICON} />
@@ -32,7 +32,7 @@ const ProfileCard: FC = () => (
     </div>
     <hr />
     <div>{SELF_INTRODUCTION}</div>
-    <div className={styles.add}>{ADDITIONAL_SELF_INTRODUCTION}</div>
+    <div className="sumaho-none">{ADDITIONAL_SELF_INTRODUCTION}</div>
   </div>
 );
 
