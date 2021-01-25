@@ -4,11 +4,6 @@
   background-color: var(--component-bg);
 }
 
-.card hr {
-  margin: 16px 0;
-  border-color: var(--border);
-}
-
 .header {
   display: flex;
 }

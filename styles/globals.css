@@ -11,6 +11,11 @@ a {
   text-decoration: none;
 }
 
+hr {
+  margin: 16px 0;
+  border: 1px solid var(--primary);
+}
+
 * {
   box-sizing: border-box;
   color: var(--text-primary);
