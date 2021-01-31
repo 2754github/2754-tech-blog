@@ -7,9 +7,10 @@ import styles from './MarkdownRenderer.module.css';
 /* eslint-disable */
 type Props = {
   markdown: string;
+  className?: string;
 };
 
-const MarkdownRenderer: FC<Props> = ({ markdown }) => {
+const MarkdownRenderer: FC<Props> = ({ markdown, className }) => {
   const renderer = new marked.Renderer();
 
   // https://github.com/markedjs/marked/blob/master/src/Renderer.js
@@ -56,7 +57,7 @@ const MarkdownRenderer: FC<Props> = ({ markdown }) => {
 
   marked.setOptions({ breaks: true, renderer });
 
-  return <section dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
+  return <section className={className} dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
 };
 
 export default MarkdownRenderer;

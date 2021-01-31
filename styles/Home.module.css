@@ -1,14 +1,14 @@
 .card {
-  margin: 1rem;
+  margin: 16px; /* paper に準拠 */
   border: 1px var(--border) solid;
   border-radius: 10px;
-  background-color: var(--component-bg);
+  background-color: var(--component-bg); /* paper に準拠 */
   transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card a {
   display: block;
-  padding: 1.5rem;
+  padding: 24px; /* paper に準拠 */
 }
 
 .card:hover,

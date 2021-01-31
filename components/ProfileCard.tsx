@@ -17,7 +17,7 @@ import Anchor from 'components/Anchor';
 import styles from './ProfileCard.module.css';
 
 const ProfileCard: FC = () => (
-  <div className={styles.card}>
+  <div className="paper">
     <div className={styles.header}>
       <Anchor className="my-icon" href={GITHUB_IMG_LINK}>
         <Image src={GITHUB_IMG_LINK} alt="my icon" width={460} height={460} />
