@@ -1,20 +1,20 @@
 .card {
-  margin: 1rem;
-  border: 1px var(--border) solid;
+  margin: 16px; /* paper に準拠 */
+  border: 1px solid var(--border);
   border-radius: 10px;
-  background-color: var(--component-bg);
+  background-color: var(--component-bg); /* paper に準拠 */
   transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card a {
   display: block;
-  padding: 1.5rem;
+  padding: 24px; /* paper に準拠 */
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  border: 1px var(--primary) solid;
+  border: 1px solid var(--primary);
   box-shadow: 0 0 0 3px var(--primary);
   transform: scale(1.05, 1.05);
 }

@@ -3,30 +3,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px var(--border) solid;
-  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  height: 160px;
   background-color: var(--component-bg);
 }
 
-.title {
-  margin-bottom: 1rem;
+.header a {
+  margin-bottom: 16px;
   background: linear-gradient(transparent 70%, var(--primary) 70%);
   font-size: var(--site-title);
   font-weight: bold;
 }
 
-.title h1 {
+.header a h1 {
   margin: 0;
   font-size: var(--site-title);
 }
 
-.title:hover,
-.title:focus,
-.title:active {
+.header a:hover,
+.header a:focus,
+.header a:active {
   background: linear-gradient(transparent 70%, var(--secondary) 70%);
 }
 
-.description {
+.header div {
   font-size: var(--site-subtitle);
   color: var(--text-secondary);
 }

@@ -11,44 +11,115 @@ a {
   text-decoration: none;
 }
 
+hr {
+  margin: 16px 0;
+  border: 1px solid var(--primary);
+}
+
 * {
   box-sizing: border-box;
   color: var(--text-primary);
   /* outline: 1px solid var(--text-primary); */
 }
 
+/* 汎用クラス */
+.paper {
+  margin: 16px;
+  padding: 24px;
+  background-color: var(--component-bg);
+}
+
+/* App コンポーネント */
+/* 1040px を黄金比（1.6:1 = 8:5 = 640:400）で分ける */
+:root {
+  --main-width: 640px;
+  --aside-width: 400px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  background-color: var(--app-bg);
+}
+
+.App main {
+  width: var(--main-width);
+  min-height: 100vh;
+}
+
+.App aside {
+  width: var(--aside-width);
+}
+
+@media (max-width: 1040px) {
+  .App {
+    display: block;
+    padding: 4px 0px;
+  }
+
+  .App main,
+  .App aside {
+    margin: 0 auto;
+    width: auto;
+    max-width: var(--main-width);
+  }
+}
+
+/* スマホサイズ（640px） 対応 */
 :root {
   --site-title: 3rem;
   --site-subtitle: 1.5rem;
 }
 
-@media (max-width: 600px) {
+.sumaho-none {
+}
+
+.my-icon {
+  width: 96px;
+  height: 96px;
+  margin-right: 24px;
+}
+
+@media (max-width: 640px) {
   :root {
     --site-title: 2rem;
     --site-subtitle: 1rem;
   }
+
+  .sumaho-none {
+    display: none;
+  }
+
+  .my-icon {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+  }
 }
 
+/* ライト/ダークモード 対応 */
 @media (prefers-color-scheme: light) {
   :root {
-    --main-bg: #f5f5f5;
+    --app-bg: #f5f5f5;
     --component-bg: #ffffff;
     --border: #eaeaea;
     --primary: #b7ffb7;
     --secondary: #ffb7ff;
     --text-primary: #000000;
     --text-secondary: #a5a5a5;
+    --vercel-logo: invert(0%);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main-bg: #303030;
+    --app-bg: #303030;
     --component-bg: #424242;
     --border: rgba(255, 255, 255, 0.12);
     --primary: #7a7aff;
     --secondary: #bc7aff;
     --text-primary: rgba(255, 255, 255, 0.7);
     --text-secondary: rgba(255, 255, 255, 0.5);
+    --vercel-logo: invert(80%);
   }
 }

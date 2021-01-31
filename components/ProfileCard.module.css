@@ -1,25 +1,8 @@
-.card {
-  margin: 16px;
-  padding: 24px;
-  background-color: var(--component-bg);
-}
-
-.card hr {
-  margin: 16px 0;
-  border-color: var(--border);
-}
-
-.flex {
+.header {
   display: flex;
 }
 
-.myIcon {
-  width: 100px;
-  height: 100px;
-  margin-right: 24px;
-}
-
-.myIcon img {
+.header img {
   border-radius: 50%;
 }
 
@@ -31,18 +14,6 @@
 .job {
   font-size: 1.2rem;
   color: var(--text-secondary);
-}
-
-@media (max-width: 600px) {
-  .myIcon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .job,
-  .add {
-    display: none;
-  }
 }
 
 /* TODO: コンポーネント分ける */

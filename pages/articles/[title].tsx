@@ -7,7 +7,6 @@ import type { Article } from 'types/Article';
 import ArticleHeader from 'components/ArticleHeader';
 import MarkdownRenderer from 'components/MarkdownRenderer';
 import { fetchTitles, generateArticle, generateDescription, generateOgpImageUrl } from 'lib/functions';
-import styles from 'styles/ArticlePage.module.css';
 
 type Props = {
   article: Article;
@@ -28,15 +27,15 @@ const ArticlePage: FC<Props> = ({ article, description, ogpImageUrl }) => (
     </Head>
 
     <main>
-      <article className={styles.article}>
-        <header>
+      <article>
+        <header className="paper">
           <ArticleHeader article={article} />
         </header>
 
         {/* section でラップされている ↓ */}
-        <MarkdownRenderer markdown={article.body} />
+        <MarkdownRenderer className="paper" markdown={article.body} />
 
-        <footer>
+        <footer className="paper">
           <Link href="/">
             <a>&larr; ホームに戻る</a>
           </Link>

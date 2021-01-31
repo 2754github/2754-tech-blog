@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { Base64 } from 'js-base64';
 
 // https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#get-repository-content
